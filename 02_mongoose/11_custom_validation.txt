@@ -1,0 +1,76 @@
+* To use custom validation we can use: 
+    validate(value) where value is which we are going to pass.
+
+    I: validate(value) { 
+            if(value < 0) {
+                throw new Error("Video count should not be negative");
+            }
+        }
+
+    II: validate:{ 
+            validator:function(value) { 
+                return value.length < 0
+            }, 
+            message: "Video count should not be negative
+        }
+
+
+Example:
+
+/structure of Schema
+const playlistSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required: true,
+        unique: true,   // not validation but acts as validation
+        uppercase: true,   // validation
+        trim: true,     // validation
+        minlength:[2,"length of name should ne min two error message! "],   // validation
+        maxlength: 30    // validation
+    },
+    ctype: {
+        type:String,
+        required: true, // validation
+        lowercase: true, // validation
+        enum:["frontend", "backend","database"]   // validation
+    },
+    videos: {
+        type:Number,
+        validate(value) {   // custom validation
+            if(value < 0) {
+                throw new Error("Video count should not be negative");
+            }
+        }
+    },
+    author:String,
+    active:Boolean,
+    date: {
+        type:Date,
+        default:Date.now
+    }
+})
+
+
+// Creating collection {make sure collection name must be in Singular form} i.e 's' shouldn't be in last and first letter should be Capital letters
+const Playlist = new mongoose.model("Playlist", playlistSchema);
+
+
+// create document and adding document on collection
+const createDocument = async () => {
+    try {
+        const NodePlaylist = new Playlist({
+            name:"                   NoDe jS              ",
+            ctype:"backend",
+            videos:-5,        // throw an error
+            author:"Techy Sishir",
+            active:true
+        })
+        //insert only one document we use below code to show result
+        const result = await NodePlaylist.save();
+        console.log(result);
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+createDocument();

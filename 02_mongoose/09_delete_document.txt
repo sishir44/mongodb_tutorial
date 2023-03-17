@@ -1,0 +1,12 @@
+// Delete the Documents
+const deleteDocument = async (_id) => {
+    try {
+        //const result = await Playlist.deleteOne({_id}); //delete the document
+        const result = await Playlist.findByIdAndDelete({_id}) // delete document
+        console.log(result);
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+deleteDocument("63fae3e8d9fc191bde1212b6")

@@ -1,0 +1,69 @@
+//Schema Structure:
+const playlistSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required: true
+    },
+    ctype:String,
+    videos:Number,
+    author:String,
+    active:Boolean,
+    date: {
+        type:Date,
+        default:Date.now
+    }
+})
+
+// Creating collection {make sure collection name must be in Singular form} i.e 's' shouldn't be in last and first letter should be Capital letters
+const Playlist = new mongoose.model("Playlist", playlistSchema);
+
+// Create multiple document and add to collection
+const createDocument = async () => {
+    try {
+        const NodePlaylist = new Playlist({
+            name:"Node JS",
+            ctype:"Back End",
+            videos:60,
+            author:"Techy Sishir",
+            active:true
+        })
+        //insert only one document we use below code to show result
+        //const result = await NodePlaylist.save();
+
+        const JsPlaylist = new Playlist({
+            name:"Javascript",
+            ctype:"Front End",
+            videos:60,
+            author:"Techy Sishir",
+            active:true
+        })
+        const mongoPlaylist = new Playlist({
+            name:"Mongodb",
+            ctype:"Database",
+            videos:60,
+            author:"Techy Sishir",
+            active:true
+        })
+        const expressPlaylist = new Playlist({
+            name:"Express",
+            ctype:"Nodejs Framework backend",
+            videos:60,
+            author:"Techy Sishir",
+            active:true
+        })
+        const reactPlaylist = new Playlist({
+            name:"Js  framework",
+            ctype:"Back End",
+            videos:60,
+            author:"Techy Sishir",
+            active:true
+        })
+        // to insert multiple document we use 
+        const result = await Playlist.insertMany([NodePlaylist,JsPlaylist,mongoPlaylist,expressPlaylist,reactPlaylist])
+        console.log(result);
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+createDocument();

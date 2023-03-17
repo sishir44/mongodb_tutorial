@@ -1,0 +1,74 @@
+The following are all the valid SchemaTypes in Mongoose.
+* String
+* Number
+* Date
+* Buffer
+* Boolean
+* Mixed
+* ObjectId
+* Array
+* Decimal128
+* Map
+* Schema
+
+
+<------------Before we get into the specifics of validation syntax, please keep the following rules in mind:------------->
+
+* We give validation in Schema.
+* Validation is defined in the SchemaType
+* Validation is middleware. Mongoose registers validation as a pre('save') hook on every schema by default.
+* You can disable automatic validation before save by setting the validateBeforeSave option
+* You can manually run validation using doc.validate(callback) or doc.validateSync()
+* You can manually mark a field as invalid (causing validation to fail) by using doc.invalidate(...)
+* Validators are not run on undefined values. The only exception is the required validator.
+* Validation is asynchronously recursive; when you call Model#save, sub-document validation is executed as well. If an error occurs, your Model#save callback receives it.
+* Validation is customizable
+
+
+//structure of Schema
+const playlistSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required: true,   -----> validation
+        unique: true,  -----> not validation but acts as validation
+        uppercase: true,  -----> validation
+        trim: true,   -----> validation
+        minlength:[2,"length of name should ne min two error message! "],
+        maxlength: 30
+    },
+    ctype:{
+        type:String,
+        required: true,
+        lowercase: true,   -----> validation
+        enum:["frontend", "backend","database"]    -----> validation
+    },
+    videos:Number,
+    author:String,
+    active:Boolean,
+    date: {
+        type:Date,
+        default:Date.now
+    }
+})
+
+// Creating collection {make sure collection name must be in Singular form} i.e 's' shouldn't be in last and first letter should be Capital letters
+const Playlist = new mongoose.model("Playlist", playlistSchema);
+
+// create document and adding document on collection
+const createDocument = async () => {
+    try {
+        const NodePlaylist = new Playlist({
+            name:"                   NoDe jS              ",
+            ctype:"Back End",
+            videos:60,
+            author:"Techy Sishir",
+            active:true
+        })
+        const result = await NodePlaylist.save();
+        console.log(result);
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+createDocument();

@@ -1,0 +1,14 @@
+// Update Document by ID.(there are two ways)
+
+const updateDocument = async (_id) => {
+    try {
+        //const result = await Playlist.updateOne({_id},{$set: {name:"Js Framework"}}) //update document
+        //const result = await Playlist.findByIdAndUpdate({_id},{$set: {name:"Js Framework"}},{new:true}) //update document
+
+        console.log(result);
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+updateDocument("63fae3e8d9fc191bde1212ba");

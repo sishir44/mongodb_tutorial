@@ -1,0 +1,39 @@
+Introduction RESTful API:
+* It is an architectural style for an application program interface(API) that uses HTTP requests to access and use data.
+* REST is not a programming language.
+* REST + API = RESTful API
+
+
+How client and server works without APIs:
+Client ---request-----> Server(database)
+Client <---response----- Server(database)
+* Client directly request to the server and server also directly response to the client.
+* There is no any intermediate to connect b/w client and server.
+* It is direct communication b/w Client and Server.
+
+How client and server works with APIs:
+Client ---(GET, POST, PUT, DELETE)----> RESTful API ------> Server(database)
+Client <---(JSON / XML) ---- RESTful API <------ Server(database)  
+* Client first request to API then request goes to server by diff methods as shown above.
+* Server also send response to API and result send to Client on the JSON and XML formate.
+* There is an intermediate to connect b/w client and server that is called API.
+
+URL:
+http://techyccr.com/api/users where users is an endpoint which is mandatory.
+
+For CRUD operation we use diff HTTP methods:
+CREATE ---> POST        eg: POST api/users
+READ   ---> GET         eg: GET api/users
+UPDATE ---> PUT, PATCH  eg: PUT/PATCH api/users
+DELETE ---> DELETE      eg: DELETE api/users
+
+* PUT allows us to update everything even though there is need small update.
+* PATCH allows us to update only a particulr thing which we want to update.
+
+NOTE:
+* As per the REST (REpresentational “State” Transfer) architecture, the server does not store any state about the client session on the server-side. 
+* Statelessness means that every HTTP request happens in complete isolation. 
+* When the client makes an HTTP request, it includes all information necessary for the server to fulfill that request.                     
+
+
+

@@ -1,0 +1,34 @@
+STEPS:
+
+I: Run following command 
+    - npm init
+    - npm i express
+    - npm i mongoose
+    - npm i nodemon
+    - npm i validator
+
+
+II: Add following scripts in .json file
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js "
+
+
+III: we use following cmd to run/execute
+    - npm run dev
+
+
+IV: create a folder as below formate:
+    - src/app.js    (main page where initially we can write all our code here)
+    - src/db/conn.js    (we can connect mongoose)
+    - src/models/mens.js    (we can create our schema here)
+    - src/routers/men.js    (at last we can move our app.js http code to this men.js and we use router to call it)
+
+
+V: All Requirement
+    - NodeJS 
+    - Express 
+    - MongoDB 
+    - VS code
+    - mongoDB Compass
+    - Mongoose
+    - Postman

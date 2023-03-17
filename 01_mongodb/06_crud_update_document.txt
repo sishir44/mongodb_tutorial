@@ -1,0 +1,11 @@
+/*****  We can update the document in two ways: *****/
+
+i) updateOne():
+    - db.collection_name.updateOne({filter}, {$set: {update}})
+    - db.shira.updateOne({name:"ccr"}, {$set: {name:"sishir"}})
+
+ii) updateMany():
+    - db.collection_name.updateMany({filter}, {$set: {update}})
+    - db.shira.updateMany({name:"ccr"}, {$set: {name:"sishir"}})
+
+* The $set operator replaces the value of a field with the specified value.

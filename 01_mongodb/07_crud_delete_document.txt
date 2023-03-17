@@ -1,0 +1,16 @@
+Syntax for deletion:
+    deleteMany():
+        db.collection_name.deleteMany({deletion_criteria})
+
+i) delete one document:
+    db.collection.deleteMany({name:"rch"})
+
+ii) delete all document:
+    db.collection.deleteMany({})
+
+iii) delete collection:
+    db.collection.drop()
+
+iv) delete database:
+    - use db_name
+    - db.dropDatabase()

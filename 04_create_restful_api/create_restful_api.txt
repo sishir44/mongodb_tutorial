@@ -1,0 +1,26 @@
+I: make a project folder
+II: Go inside the project folder and run the below cmd:
+    - npm init
+    - npm i express
+    - npm i mongoose
+    - npm i validator
+    - npm i nodemon
+
+
+III: Structure:
+-Project_Folder
+    - nodemodules
+    - src   
+        - app.js (we can write our code for all)
+        - db/connect.js (we can write code for mongodb connect only)
+        - models/students.js (we can create a schema for students)
+        - routers/student.js ( we can write all code n export throght router to app.js)
+
+IV: make sure we can write below code in package.js file inside script.
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+
+
+V: to run project:
+    - npm run dev
+    - node src/app.js

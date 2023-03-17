@@ -1,0 +1,28 @@
+Mongoose:
+* It is also knows as MongoDB’s framework. 
+* It helps us to establish a connection between Nodejs and MongoDB. 
+* Mongoose is an object data modeling (ODM) library for MongoDB and Node.js. 
+* It manages relationship between data, provides schema validation, and is used to translate between object in code and 
+    the representation of those object in MongooB. 
+
+
+Diagram and connection:
+Nodejs -----> mongoose ----->mongo driver ----> mongoDB----objectmapping--->Nodejs.
+step:1        step:2          step:3            step:4                       step:1
+
+
+MongoDB Connection:
+
+const mongoose = require('mongoose');
+// connection creation
+mongoose.set('strictQuery', false);
+mongoose.connect("mongodb://localhost:27017/shira or db_name", { useNewUrlParser: true }, { useUnifiedTopology: true })
+.then( () => console.log("connection successfully...."))
+.catch( (err) => console.log(err));
+
+Steps:
+I: run cmd -> npm init
+II: install mongoose -> npm i mongoose
+    make sure that the node version must be greater then 12, so only mongose will work fine.
+III: finally to run the application we use following command
+      - node src/app.js

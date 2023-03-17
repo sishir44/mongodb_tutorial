@@ -1,0 +1,26 @@
+STEPS:
+
+i) To see the database we use command:
+     - show dbs
+
+ii) To create a new database and also enter inside the database if already existing:
+     - use db_name
+     - use BRS64
+
+iii) To create collection_name/table_name containing documents:
+     - db.collection_name.insertOne({})
+     - db.shira.insertOne({name:"js",type:"frontend",vdo:80,active:true})
+     - where shira is a collection_name/table_name.
+
+iv) To show the database:
+     - show dbs
+
+V) To see current active database:
+    - db
+
+vi) To see collection/table:
+    - show collections
+
+vii) To see documents/row:
+    - db.shira.find()
+    - db.shira.find().pretty()

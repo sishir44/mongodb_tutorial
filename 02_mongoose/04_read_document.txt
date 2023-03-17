@@ -1,0 +1,13 @@
+//Read or Querying the Documents using find() method
+const readDocument = async () => {
+    try {
+        //const result = await Playlist.find();
+        //const result = await Playlist.find({ctype:"Nodejs Framework backend"});
+        const result = await Playlist.find({ctype:"Nodejs Framework backend"}).select({name:1});
+        console.log(result);
+    } 
+    catch(err) {
+        console.log(err);
+    }
+}
+readDocument();

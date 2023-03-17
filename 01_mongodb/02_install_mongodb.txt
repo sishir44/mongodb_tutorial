@@ -1,0 +1,13 @@
+Install MongoDB in Linux:
+* goto mongo.com/product/community servers
+* Use following command in terminal:
+    - sudo apt update
+    - sudo apt install mongodb-server mongodb
+    - mongod --version
+    - mongo --version
+    - mongo : To run MongoDB then we'll get in.
+
+* Default IP : 127.0.0.1
+* Default port : 27017
+* To show the database we use:
+    - show dbs

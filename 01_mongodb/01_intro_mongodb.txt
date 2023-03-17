@@ -1,0 +1,22 @@
+SQL(MySQL)  VS  NOSQL(MongoDB):
+
+SQL(MySQL):
+* RDBMS is a relational database management system that and works on relational databases.
+* It stores data in form of entity as tables.
+* It uses SQL to query the database.
+
+NOSQL(MongoDB):
+* It's a non-relational, document-oriented database management system and works on document-based databases.
+* It stores data in form of document.
+* It uses BSON to query the database.
+* BSON: - It's Binary JSON.
+        - It is a binary representation to store data in JSON format.
+        - It optimized for speed, space and flexibility.
+        - We can parsed our data much more quickly with the help of BSON.
+
+
+REPRESENTATION:
+ (MySQL):          (MongoDB):
+  * Table           * Collection
+  * Row             * Document
+  * Column          * Fields

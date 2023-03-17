@@ -1,0 +1,15 @@
+const readDocument = async () => {
+    try {
+        const result = await Playlist
+            .find({author:"Techy Sishir"}).count(); // counting the documents   OR
+            .find({author:"Techy Sishir"}).countDocuments(); // counting the documents    
+
+            .find({author:"Techy Sishir"}).select({name:1}).sort({name:1}); // sorting by ascending
+            .find({author:"Techy Sishir"}).select({name:1}).sort({name:-1}); // sorting by descending  
+        console.log(result);
+    } 
+    catch(err) {
+        console.log(err);
+    }
+}
+readDocument();

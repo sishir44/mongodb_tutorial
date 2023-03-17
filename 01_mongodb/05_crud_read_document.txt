@@ -1,0 +1,23 @@
+Syntax for CURD Read Document:
+    db.collection.findO(query,projection)
+        where projection represets show(1) and hide(0)
+
+* Find all result of the given collections.
+    db.collection.find().pretty()
+
+* Get only one document data as output whose name is rch.
+    db.collection.find({name:'rch'}).pretty()
+
+* Get only one document data as output with only name fields.
+    db.collection.find({name:'rch'}, {name:1}).pretty()
+        this will show only name fields = 1 -show
+    db.collection.find({name:'rch'}, {name:0}).pretty()
+        this will show except name fields = 0 - hide
+    
+* Get document data without _id field.
+    db.collection.find({name:'rch'}, {_id:0, name:1}).pretty()
+
+* For eg we have many documents with having 'active:true' fields but need to show first document only.
+    db.collection.find({active:'true'}).pretty().limit(1)
+        or
+    db.collection.findOne({active:true})

@@ -1,0 +1,57 @@
+Schema: 
+* A mongoose schema defines the structure of the document, default value, validators, etc.
+  
+Structure:
+const playlistSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required: true
+    },
+    ctype:String,
+    videos:Number,
+    author:String,
+    active:Boolean,
+    date: {
+        type:Date,
+        default:Date.now
+    }
+})
+
+
+Mongoose Model:
+* A Mongoose model is a wrapper on the mongoose schema which provides an interface to the dbs for creating, querying, updating, deleting records, etc.
+
+// Creating collection {make sure collection name must be in Singular form} i.e 's' shouldn't be in last and first letter should be Capital letters
+const collection_name = new mongoose.model("collection_name", schema_name);
+const Playlist = new mongoose.model("Playlist", playlistSchema);
+
+
+// create one document and add document in above collection
+const createDocument = async () => {
+    try {
+        const reactPlaylist = new Playlist({
+            name:"Node JS",
+            ctype:"Back End",
+            videos:60,
+            author:"Techy Sishir",
+            active:true
+        })
+        //insert only one document we use below code to show result
+        const result = await reactPlaylist.save();
+        console.log(result);
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+createDocument();
+
+
+STEPS:
+I: create connection to mongodb
+II: create schema
+III: create collection and add document to collection
+IV: result will show in mongodb compass by run command (node src/app.js)
+
+  
+  

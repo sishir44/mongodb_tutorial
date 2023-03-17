@@ -1,0 +1,3 @@
+We can insert documents in collection by 2 ways:
+    i) db.collection.insertOne({})
+    ii) db.collection.insertMany([ {},{},{},{},{},{},{},{},{} ])
